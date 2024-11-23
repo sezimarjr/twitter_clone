@@ -12,11 +12,13 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['id, user, content, created_at']
+        fields = ['id', 'user', 'content', 'created_at', 'like_count']
         read_only_fields = ['id', 'created_at']
 
     def create(self, validated_data):
-        return Post.objects.create(**validated_data)
+        user = self.context['request'].user
+        post = Post.objects.create(user=user, **validated_data)
+        return post
 
     def get_like_count(self, obj):
         return Like.objects.filter(post=obj).count()

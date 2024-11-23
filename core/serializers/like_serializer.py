@@ -2,10 +2,12 @@ from rest_framework import serializers
 from core.models import Like
 from django.contrib.auth.models import User
 
+from core.models import Post
+
 
 class LikeSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField()
-    post = serializers.PrimaryKeyRelatedField(read_only=True)
+    user = serializers.StringRelatedField(read_only=True)
+    post = serializers.PrimaryKeyRelatedField(queryset=Post.objects.all())
 
     class Meta:
         model = Like
