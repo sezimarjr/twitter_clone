@@ -7,7 +7,7 @@ router = routers.DefaultRouter()
 router.register(r'posts', viewsets.PostViewSet)
 router.register(r'profiles', viewsets.ProfileViewSet)
 router.register(r'follows', viewsets.FollowViewSet)
-router.register(r'likes', viewsets.LikeViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),
