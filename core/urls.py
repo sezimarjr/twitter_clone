@@ -11,4 +11,5 @@ router.register(r'follows', viewsets.FollowViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('register/', viewsets.RegisterUserView.as_view()),
 ]
