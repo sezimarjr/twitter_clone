@@ -13,6 +13,7 @@ router.register(r'follows', viewsets.FollowViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('register/', viewsets.RegisterUserView.as_view()),
+    path('login/', viewsets.LoginView.as_view(), name='login'),
     path('profile/<str:username>/',
          viewsets.ProfileByUsernameView.as_view(), name='profile_by_username')
 ]
