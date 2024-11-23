@@ -18,6 +18,6 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         # Inclua os campos que você deseja exibir
-        fields = ['id', 'user', 'bio', 'location', 'birth_date']
+        fields = ['user', 'bio', 'location', 'birth_date', 'avatar']
         read_only_fields = ['id', 'user', 'bio', 'location',
                             'birth_date']  # Torna tudo somente leitura

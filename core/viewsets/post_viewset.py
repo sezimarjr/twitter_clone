@@ -3,6 +3,7 @@ from core.models import Post
 from core.models import Like
 from core.serializers import PostSerializer
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -11,6 +12,7 @@ from rest_framework.response import Response
 class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()  # Define que vamos retornar todos os posts
     serializer_class = PostSerializer  # Indica qual serializer usar para os dados
+    authentication_classes = [SessionAuthentication]
     permission_classes = [
         IsAuthenticated
     ]
